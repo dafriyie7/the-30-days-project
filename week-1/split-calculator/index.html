@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Split Calculator</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Tip Cal</h1>
+
+    <div class="control">
+      <p>Enter Total Bill</p>
+      <input type="number" id="total-bill" placeholder="0" min="0" step="0.01" />
+    </div>
+
+    <div class="control">
+      <p>Choose Your Tip</p>
+      <select id="tip-percent">
+        <option value="" disabled selected>Select from here</option>
+        <option value="0.10">10%</option>
+        <option value="0.15">15%</option>
+        <option value="0.20">20%</option>
+        <option value="0.25">25%</option>
+      </select>
+    </div>
+
+    <div class="control">
+      <p>Split the bill</p>
+      <input type="number" id="split" placeholder="1" min="1" step="1" />
+    </div>
+
+    <button id="calculate">Calculate</button>
+
+    <div class="total-tip">
+      <p>Total per person</p>
+      $ <span id="tip">0.00</span>
+    </div>
+  </div>
+
+  <script>
+    const calculateBtn = document.getElementById('calculate');
+
+    calculateBtn.addEventListener('click', () => {
+      // Grab and convert values
+      const totalBill = parseFloat(document.getElementById('total-bill').value);
+      const tipPercent = parseFloat(document.getElementById('tip-percent').value);
+      const split = parseInt(document.getElementById('split').value, 10);
+
+      // Basic validation
+      if (isNaN(totalBill) || isNaN(tipPercent) || isNaN(split) || split <= 0) {
+        alert('Please enter valid numbers for bill, tip %, and split.');
+        return; // stop execution if invalid
+      }
+
+      // Compute per-person amount
+      const tipAmount   = totalBill * tipPercent;     // total tip
+      const grandTotal  = totalBill + tipAmount;      // bill + tip
+      const perPerson   = grandTotal / split;
+
+      // Show two decimals
+      document.getElementById('tip').textContent = perPerson.toFixed(2);
+    });
+  </script>
+</body>
+</html>
