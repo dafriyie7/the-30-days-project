@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css" />
+		<title>Circular progress bar</title>
+	</head>
+	<body>
+		<div class="skill">
+			<div class="outer">
+                <div class="inner">
+                    <div id="number">
+                    </div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160">
+                <defs>
+                  <linearGradient id="gradientColor">
+                    <stop offset="0%" stop-color="#da22ff" />
+                    <stop offset="100%" stop-color="#9733ee" />
+                  </linearGradient>
+                </defs>
+                <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+              </svg>
+            </div>
+            
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
